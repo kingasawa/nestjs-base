@@ -1,0 +1,19 @@
+{
+  "type": "mysql",
+  "host": "127.0.0.1",
+  "port": 3306,
+  "username": "nest-base",
+  "password": "nest-base",
+  "database": "nest-base",
+  "logging": true,
+  "entities": ["src/modules/database/**/*.entity{js,.ts}"],
+  "migrations": [
+    "src/modules/database/migrations/*{.ts,.js}"
+  ],
+  "migrationsTableName": "migrations",
+  "migrationsRun": true,
+  "cli": {
+    "migrationsDir": "src/modules/database/migrations"
+  },
+  "synchronize": true
+}
