@@ -14,6 +14,7 @@ const configs = {
     EMAIL_PASS: process.env.EMAIL_PASS || 'Diablo321',
     EMAIL_SECURE: process.env.EMAIL_SECURE || false, //true for 465, false for other port
     EMAIL_SENDER: process.env.EMAIL_SENDER || '"No Reply" <noreply0@mail.com',
+    SENDINBLUE_API_V3_KEY: process.env.SENDINBLUE_API_V3_KEY || '',
   },
   development: {},
   production: {},

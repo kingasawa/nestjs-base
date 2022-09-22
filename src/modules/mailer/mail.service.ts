@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
 import { config } from './config';
 const SibApiV3Sdk = require('sib-api-v3-sdk');
-const v3APIKey = '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';
+const v3APIKey = config.SENDINBLUE_API_V3_KEY;
 
 @Injectable()
 export class MailService {
