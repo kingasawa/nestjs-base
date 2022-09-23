@@ -1,14 +1,10 @@
-import UserEntity from '@modules/database/entities/user.entity';
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BaseService } from '@shared/base/base.service';
 import { Repository } from 'typeorm';
-import { createUserData } from './category.type';
 import { DELETE_MODE } from '@shared/common/constants';
-import { getManager } from 'typeorm';
 import CategoryEntity from '@modules/database/entities/category.entity';
 import ProductEntity from '@modules/database/entities/product.entity';
-// import ProductEntity from "@modules/database/entities/product.entity";
 
 @Injectable()
 export class CategoryService extends BaseService<CategoryEntity> {

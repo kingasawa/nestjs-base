@@ -21,9 +21,9 @@ export class AuthService {
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password);
-    console.log("password 1", password);
-    console.log("password 2", user.password);
-    console.log("passwordMatch", passwordMatch);
+    console.log('password 1', password);
+    console.log('password 2', user.password);
+    console.log('passwordMatch', passwordMatch);
     if (passwordMatch) {
       const { password, ...result } = user;
       return result;

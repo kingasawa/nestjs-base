@@ -17,7 +17,7 @@ async function bootstrap() {
     logger: config.logLevels,
   });
 
-  const whitelist = ['127.0.0.1', 'http://localhost:19006'];
+  // const whitelist = ['127.0.0.1', 'http://localhost:19006'];
 
   app.enableCors({
     origin: function (origin, callback) {

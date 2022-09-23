@@ -6,7 +6,7 @@ import { Repository } from 'typeorm';
 import { createUserData } from './user.type';
 import { DELETE_MODE } from '@shared/common/constants';
 import { JwtService } from '@nestjs/jwt';
-import { MailService } from 'modules/mailer/mail.service';
+import { MailService } from '@modules/mailer/mail.service';
 
 @Injectable()
 export class UserService extends BaseService<UserEntity> {

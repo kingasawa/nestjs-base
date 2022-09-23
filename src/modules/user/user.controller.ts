@@ -6,7 +6,7 @@ import { JwtAuthGuard } from '@core/guards/jwt-auth.guard';
 import { AbilityFactory, Action } from '@modules/ability/ability.factory';
 import UserEntity from '@modules/database/entities/user.entity';
 import { CheckAbilities } from '@modules/ability/abilities.decorator';
-import { AuthenticatedGuard } from '@core/guards/authenticated.guard';
+// import { AuthenticatedGuard } from '@core/guards/authenticated.guard';
 
 @Controller('user')
 // @UseGuards(AuthenticatedGuard)
@@ -49,5 +49,10 @@ export class UserController extends BaseController {
   @UseGuards(JwtAuthGuard)
   async me(@Request() req, @Response() res): Promise<any> {
     return res.json({ user: req.user });
+  }
+
+  @Get('/test')
+  async testing(@Request() req, @Response() res): Promise<any> {
+    return res.status(200).send('Hello World!');
   }
 }

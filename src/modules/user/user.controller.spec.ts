@@ -1,32 +1,25 @@
-import { AbilityFactory } from './../ability/ability.factory';
 import { UserController } from './user.controller';
-import { EmployeeService } from '../seller/seller.service';
 import { expect, describe, beforeEach, it } from '@jest/globals';
-import { I18nService } from 'nestjs-i18n';
-import { UserService } from './user.service';
-import { Repository } from 'typeorm';
-import SellerEntity from '@modules/database/entities/seller.entity';
-import UserEntity from '@modules/database/entities/user.entity';
+import { Test, TestingModule } from '@nestjs/testing';
+import { AppModule } from '../../app.module';
+import { INestApplication } from '@nestjs/common';
+import request from 'supertest';
+
 describe('UserController', () => {
-  let userController: UserController;
-  let i18n: I18nService;
-  let userService: UserService;
-  let employeeService: EmployeeService;
-  let abilityFactory: AbilityFactory;
-  let employeeRepository: Repository<SellerEntity>;
-  let userRepository: Repository<UserEntity>;
+  let app: INestApplication;
+
   beforeEach(async () => {
-    employeeService = new EmployeeService(employeeRepository, userRepository);
-    userController = new UserController(i18n, userService, employeeService, abilityFactory);
+    const moduleFixture: TestingModule = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+    await app.init();
   });
+
   describe('registration', () => {
-    it('should check exist registration ', async () => {
-      expect(userController.registration).toBeDefined();
-    });
-  });
-  describe('findAll', () => {
-    it('should check exist findAll ', async () => {
-      expect(employeeService.findAll).toBeDefined();
+    it('should return my information ', async () => {
+      return request(app.getHttpServer()).get('/user/test').expect(200).expect('Hello World');
     });
   });
 });

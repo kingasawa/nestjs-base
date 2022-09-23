@@ -1,6 +1,6 @@
 // import { MailerService } from '@nestjs-modules/mailer';
 import { MailService } from './mail.service';
-import { Controller, Get, Post, Query, Request, Response, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Query, Request, Response } from '@nestjs/common';
 // import { JwtAuthGuard } from "@core/guards/jwt-auth.guard";
 // import { CheckAbilities } from "@modules/ability/abilities.decorator";
 // import { AbilityFactory, Action } from "@modules/ability/ability.factory";

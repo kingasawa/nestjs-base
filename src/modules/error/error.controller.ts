@@ -1,5 +1,5 @@
 import { BaseController } from '@shared/base/base.controller';
-import { Controller, Get, Render, Request, UseGuards } from '@nestjs/common';
+import { Controller, UseGuards } from '@nestjs/common';
 import { I18nService } from 'nestjs-i18n';
 import { AuthenticatedGuard } from '@core/guards/authenticated.guard';
 

@@ -1,5 +1,5 @@
 import { BaseController } from '@shared/base/base.controller';
-import { Controller, Get, Post, Request, Response, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Request, Response } from '@nestjs/common';
 import { I18nService } from 'nestjs-i18n';
 import { AbilityFactory } from '@modules/ability/ability.factory';
 import { CategoryService } from '@modules/category/category.service';

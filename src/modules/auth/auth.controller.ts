@@ -1,5 +1,5 @@
 import { BaseController } from '@shared/base/base.controller';
-import { UseGuards, Controller, Post, Request, Response, Get, UseFilters, Query } from '@nestjs/common';
+import { UseGuards, Controller, Post, Request, Response, Get, UseFilters } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from '@core/guards/local-auth.guard';
 import { LoginFailedExceptionFilter } from '@core/filters/login-failed-exception.filter';
@@ -25,7 +25,7 @@ export class AuthController extends BaseController {
       req.user.remember = req.body.remember || false;
       req.user.lang = req.body.language || DEFAULT_LANGUAGE;
       const loginData = await this.authService.login(req.user);
-      console.log("loginData", loginData);
+      console.log('loginData', loginData);
       return res.json({ token: loginData });
     } catch (error) {
       return this.error(res, error?.message);
