@@ -11,6 +11,7 @@ import { AppModule } from './app.module';
 import { config } from './config';
 import { ForbiddenExceptionFilter } from './core/filters/forbidden-exception.filter';
 import { SessionConfigs } from './shared/common/types';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
@@ -47,6 +48,15 @@ async function bootstrap() {
   app.use(session(sessionConfigs));
   app.use(passport.initialize());
   app.use(passport.session());
+
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle('API Documents')
+    .setDescription('NestJS base API version 1.0')
+    .setVersion('1.0')
+    // .addTag('cats')
+    .build();
+  const document = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup('api', app, document);
 
   await app.listen(config.PORT);
   console.log(`App running on PORT ${config.PORT}`);
