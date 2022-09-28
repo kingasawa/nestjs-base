@@ -18,11 +18,10 @@ export class CategoryService extends BaseService<CategoryEntity> {
     });
   }
 
-  public async fetchAll(payload = {}): Promise<any> {
-    const categories: CategoryEntity[] = await this.categoryRepository.find({
+  public async fetchAll(): Promise<any> {
+    return await this.categoryRepository.find({
       relations: ['products'],
     });
-    return categories;
   }
 
   // public async createWithRelation(payload: any = {}): Promise<any> {
@@ -37,7 +36,7 @@ export class CategoryService extends BaseService<CategoryEntity> {
   //   return result;
   // }
 
-  public async create(payload: any = {}): Promise<any> {
+  public async create(): Promise<any> {
     const products: ProductEntity[] = await this.productRepository.find();
     const CategoryEntity = <CategoryEntity>{
       title: 'test abc',

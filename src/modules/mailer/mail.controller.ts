@@ -1,13 +1,6 @@
-// import { MailerService } from '@nestjs-modules/mailer';
 import { MailService } from './mail.service';
-import { Controller, Get, Post, Query, Request, Response } from '@nestjs/common';
-// import { JwtAuthGuard } from "@core/guards/jwt-auth.guard";
-// import { CheckAbilities } from "@modules/ability/abilities.decorator";
-// import { AbilityFactory, Action } from "@modules/ability/ability.factory";
-// import UserEntity from "@modules/database/entities/user.entity";
+import { Controller, Post, Query, Request, Response } from '@nestjs/common';
 import { BaseController } from '@shared/base/base.controller';
-// import { I18nService } from "nestjs-i18n";
-// import { UserService } from "@modules/user/user.service";
 
 @Controller('mailer')
 export class MailController extends BaseController {

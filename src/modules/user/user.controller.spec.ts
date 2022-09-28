@@ -1,5 +1,4 @@
-import { UserController } from './user.controller';
-import { expect, describe, beforeEach, it } from '@jest/globals';
+import { describe, beforeEach, it } from '@jest/globals';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppModule } from '../../app.module';
 import { INestApplication } from '@nestjs/common';

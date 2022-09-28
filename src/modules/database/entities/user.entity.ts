@@ -1,6 +1,7 @@
-import { BeforeInsert, BeforeUpdate, Column, Entity } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 import bcrypt from 'bcrypt';
 import BaseEntity from './base';
+import ClubEntity from '@modules/database/entities/club.entity';
 
 @Entity({ name: 'users' })
 class UserEntity extends BaseEntity {
@@ -25,7 +26,16 @@ class UserEntity extends BaseEntity {
   @Column({ type: 'varchar', width: 100, nullable: true })
   registerToken: string;
 
-  @BeforeInsert() async hasPassword() {
+  @ManyToMany(() => ClubEntity)
+  @JoinTable({
+    name: 'user_club',
+    joinColumns: [{ name: 'usersId' }],
+    inverseJoinColumns: [{ name: 'clubsId' }],
+  })
+  clubs: ClubEntity[];
+
+  @BeforeInsert()
+  async hasPassword() {
     this.password = await bcrypt.hash(this.password, 10);
   }
 

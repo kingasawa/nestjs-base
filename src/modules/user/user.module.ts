@@ -3,7 +3,7 @@ import { UserController } from './user.controller';
 import { Module } from '@nestjs/common';
 import { UserService } from './user.service';
 import { MailService } from '../mailer/mail.service';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { JwtModule } from '@nestjs/jwt';
 import UserEntity from '@modules/database/entities/user.entity';
 import { AbilityModule } from '@modules/ability/ability.module';
 import { JWT_SECRET_KEY } from '@shared/common/constants';

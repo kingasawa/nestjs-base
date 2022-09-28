@@ -25,6 +25,7 @@ export class AuthService {
     console.log('password 2', user.password);
     console.log('passwordMatch', passwordMatch);
     if (passwordMatch) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { password, ...result } = user;
       return result;
     }

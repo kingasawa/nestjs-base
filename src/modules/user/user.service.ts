@@ -21,16 +21,10 @@ export class UserService extends BaseService<UserEntity> {
     });
   }
 
-  public async fetchAllUser(payload = {}): Promise<any> {
-    // const condition = {};
-    // const searchOptions = {
-    //   where: condition,
-    // };
-
-    const users = [];
-    // const users: any = await this.userRepository.find(searchOptions);
-    console.log('users', users);
-    return users;
+  public async fetchAllUser(): Promise<any> {
+    return await this.userRepository.find({
+      relations: ['clubs'],
+    });
   }
 
   public async verifyUser(email: string, code: string): Promise<any> {
