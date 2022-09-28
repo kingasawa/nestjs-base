@@ -10,8 +10,11 @@ class CategoryEntity extends BaseEntity {
   @Column({ type: 'varchar', width: 12, nullable: false })
   description: string;
 
-  @Column({ type: 'tinyint', nullable: false, default: 0 })
+  @Column({ type: 'varchar', nullable: false })
   banner: string;
+
+  @Column({ type: 'tinyint', nullable: false, default: 1 })
+  active: number;
 
   @ManyToMany(() => ProductEntity, (product) => product.categories, {
     cascade: ['insert', 'update'],

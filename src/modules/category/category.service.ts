@@ -36,7 +36,8 @@ export class CategoryService extends BaseService<CategoryEntity> {
   //   return result;
   // }
 
-  public async create(): Promise<any> {
+  public async create(payload): Promise<any> {
+    console.log('payload', payload);
     const products: ProductEntity[] = await this.productRepository.find();
     const CategoryEntity = <CategoryEntity>{
       title: 'test abc',

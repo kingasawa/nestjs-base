@@ -18,6 +18,7 @@ import { LoggerService } from '@modules/logger/logger.service';
 import { LoggerModule } from '@modules/logger/logger.module';
 import { GoogleStrategy } from '@modules/auth/google.strategy';
 import { ClubModule } from '@modules/club/club.module';
+import { EventModule } from '@modules/event/event.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ClubModule } from '@modules/club/club.module';
     UserModule,
     CategoryModule,
     ClubModule,
+    EventModule,
     ProductModule,
     AuthModule,
     I18nModule.forRoot({

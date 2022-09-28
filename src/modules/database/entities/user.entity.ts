@@ -2,6 +2,7 @@ import { BeforeInsert, BeforeUpdate, Column, Entity, JoinTable, ManyToMany } fro
 import bcrypt from 'bcrypt';
 import BaseEntity from './base';
 import ClubEntity from '@modules/database/entities/club.entity';
+import EventEntity from '@modules/database/entities/event.entity';
 
 @Entity({ name: 'users' })
 class UserEntity extends BaseEntity {
@@ -33,6 +34,14 @@ class UserEntity extends BaseEntity {
     inverseJoinColumns: [{ name: 'clubsId' }],
   })
   clubs: ClubEntity[];
+
+  @ManyToMany(() => EventEntity)
+  @JoinTable({
+    name: 'user_event',
+    joinColumns: [{ name: 'usersId' }],
+    inverseJoinColumns: [{ name: 'eventsId' }],
+  })
+  events: EventEntity[];
 
   @BeforeInsert()
   async hasPassword() {
