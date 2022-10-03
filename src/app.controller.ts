@@ -1,5 +1,5 @@
 import { Controller, UseGuards } from '@nestjs/common';
-import { AuthenticatedGuard } from './core/guards/authenticated.guard';
+import { AuthenticatedGuard } from '@core/guards/authenticated.guard';
 import { I18nService } from 'nestjs-i18n';
 import { AbilityFactory } from '@modules/ability/ability.factory';
 import { BaseController } from '@shared/base/base.controller';
